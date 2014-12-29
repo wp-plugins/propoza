@@ -27,8 +27,8 @@ function request_quote_form() {
                 jQuery("#dialog").dialog("open");
             },
             error: function () {
-                jQuery("#dialog").html(response);
                 jQuery("#dialog").dialog("open");
+                jQuery("#dialog").html(jQuery('#error-message'));
             }
         }
     );

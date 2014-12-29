@@ -16,32 +16,11 @@
                 add_action('wp_enqueue_scripts', array($this, 'register_scripts_and_styles'));
 
                 add_action('woocommerce_proceed_to_checkout', array($this, 'add_after_cart'));
-
-
             }
 
             public function add_after_cart()
             {
-                ?>
-                <div id="dialog" style="display: none">
-
-                </div>
-                <div style="display: none">
-                    <div id="error-message">
-                        <ul class="woocommerce-error">
-                            <li><?php echo _e('An error occurred, please try again. If this error persists please contact us.', 'propoza'); ?></li>
-                        </ul>
-                    </div>
-                    <div id="success-message">
-                        <ul class="woocommerce-message">
-                            <li><?php echo _e('Quote is requested', 'propoza'); ?></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="clear"></div>
-                <input type="button" class="button alt quote-button" name="request" value="<?php _e('Request quote', 'propoza'); ?>"
-                       onclick="request_quote();"/>
-            <?php
+                require_once(dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'templates/message.php');
             }
 
             /**
