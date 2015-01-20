@@ -12,7 +12,7 @@
         Plugin URI: http://propoza.com
         Description: Propoza adds quotation functionality to your webshop.
         This means more leads & more orders!
-        Version: 1.0.0
+        Version: 1.0.1
         Author: Propoza
         Author Email: support@propoza.com
         License:

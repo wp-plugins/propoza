@@ -4,7 +4,7 @@ Website: http://propoza.com/
 Tags: propoza, rfq, requestforquote, quote, quoations, woocommerce
 Requires at least: 4.0.1
 Tested up to: 4.0.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 Module dependency: WooCommerce
 License: Commercial Use
 
@@ -51,5 +51,7 @@ You can submit a subdomain when creating an account at propoza.com.
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.0 =
 * First Release
+= 1.0.1 =
+* Minor textual changes

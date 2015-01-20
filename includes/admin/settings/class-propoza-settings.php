@@ -93,10 +93,10 @@
                     ),
                     'general_title'      => array('title' => __('General', 'propoza'), 'type' => 'title', 'desc' => '', 'id' => 'wc_settings_tab_propoza_general_title'),
                     'web_address'        => array(
-                        'title' => __('Webaddress', 'propoza'),
+                        'title' => __('Sub-domain', 'propoza'),
                         'type'  => 'text',
                         'id'    => 'wc_settings_tab_propoza_web_address',
-                        'desc'  => __('yourdomain.propoza.com', 'propoza'),
+                        'desc'  => __('<b>yourdomain</b>.propoza.com', 'propoza'),
                     ),
                     'api_key'            => array(
                         'title' => __('API Key', 'propoza'),
