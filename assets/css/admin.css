@@ -1,0 +1,11 @@
+h3.propoza-header {
+    background: url('../images/full-logo.png') no-repeat scroll 0 0 transparent;
+    background-size: 100%;
+    background-position: center;
+    height: 65px;
+    overflow: hidden;
+    padding: 0;
+    text-indent: -9999px;
+    width: 200px;
+    margin-bottom: 0;
+}
