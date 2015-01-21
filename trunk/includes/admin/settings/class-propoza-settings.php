@@ -96,13 +96,13 @@
                         'title' => __('Sub-domain', 'propoza'),
                         'type'  => 'text',
                         'id'    => 'wc_settings_tab_propoza_web_address',
-                        'desc'  => __('<b>yourdomain</b>.propoza.com', 'propoza'),
+                        'desc'  => __('.propoza.com<p>Please enter the sub-domain that you have registered with your Propoza account.</p>', 'propoza'),
                     ),
                     'api_key'            => array(
                         'title' => __('API Key', 'propoza'),
                         'type'  => 'api_key_textarea',
                         'id'    => 'wc_settings_tab_propoza_api_key',
-                        'desc'  => __('The API key will be send to you in our email after you have setup your Propoza account'),
+                        'desc'  => __('<p>The API key will be send to you in our email after you have setup your Propoza account</p>'),
                         'css'   => 'width:195px; height:150px'
                     ),
                     'test_connection'    => array(
