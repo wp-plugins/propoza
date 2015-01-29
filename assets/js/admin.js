@@ -1,5 +1,5 @@
-var basicAuth;
-var connectionTestUrl;
+var basic_auth;
+var connection_test_url;
 
 function test_connection() {
     jQuery(document).queue('test_connection', get_basic_auth);
@@ -9,22 +9,22 @@ function test_connection() {
 }
 
 function get_test_connection_url() {
-    jQuery.post(ajax_object.ajax_url, {
+    jQuery.post(propoza_ajax_object.ajax_url, {
         'action': 'get_test_connection_url',
         'web_address': jQuery('#wc_settings_tab_propoza_web_address').val()
     }, function (response) {
-        connectionTestUrl = response;
+        connection_test_url = response;
         jQuery(document).dequeue('test_connection');
     });
 }
 
 function get_basic_auth() {
-    jQuery.post(ajax_object.ajax_url, {
+    jQuery.post(propoza_ajax_object.ajax_url, {
         'action': 'get_basic_auth',
         'api_key': jQuery('#wc_settings_tab_propoza_api_key').val(),
         'web_address': jQuery('#wc_settings_tab_propoza_web_address').val()
     }, function (response) {
-        basicAuth = response;
+        basic_auth = response;
         jQuery(document).dequeue('test_connection');
     });
 }
@@ -33,11 +33,11 @@ function get_basic_auth() {
 function execute_test_connection() {
     jQuery.ajax(
         {
-            url: connectionTestUrl,
+            url: connection_test_url,
             type: "POST",
             dataType: 'json',
             headers: {
-                "Authorization": "Basic " + basicAuth
+                "Authorization": "Basic " + basic_auth
             },
             success: function (response) {
                 if (response.response === true) {
@@ -53,13 +53,3 @@ function execute_test_connection() {
         }
     );
 }
-
-/*
-function launch_propoza() {
-    jQuery.post(ajax_object.ajax_url, {
-        'action': 'get_launch_propoza_url',
-        'web_address': jQuery('#wc_settings_tab_propoza_web_address').val()
-    }, function (response) {
-        window.open(response, '_blank');
-    });
-}*/

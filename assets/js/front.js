@@ -3,18 +3,17 @@ function request_quote() {
 }
 jQuery(function () {
     jQuery("#dialog").dialog({autoOpen: false, modal: true, resizable: false});
-    /*jQuery(".ui-dialog-titlebar").hide();*/
 });
 
 function request_quote_form() {
     jQuery.ajax(
         {
-            url: ajax_object.form_quote_request_url,
+            url: propoza_ajax_object.form_quote_request_url,
             type: "POST",
-            data: JSON.stringify(ajax_object.logged_in_user),
+            data: JSON.stringify(propoza_ajax_object.logged_in_user),
             contentType: 'application/json',
             headers: {
-                "Authorization": "Basic " + ajax_object.basic_auth
+                "Authorization": "Basic " + propoza_ajax_object.basic_auth
             },
             success: function (response) {
                 jQuery("#dialog").html(response);
@@ -36,17 +35,17 @@ function request_quote_form() {
 function execute_request_quote() {
     jQuery('#quote_request_form input').parent('p').removeClass('woocommerce-invalid');
     var form = jQuery("#quote_request_form");
-    ajax_object.prepared_quote.Quote.Requester = form.serializeObject();
-    delete ajax_object.prepared_quote.Quote.Requester._method;
+    propoza_ajax_object.prepared_quote.Quote.Requester = form.serializeObject();
+    delete propoza_ajax_object.prepared_quote.Quote.Requester._method;
 
     jQuery.ajax(
         {
             url: form.attr('action'),
             type: "POST",
-            data: JSON.stringify(ajax_object.prepared_quote),
+            data: JSON.stringify(propoza_ajax_object.prepared_quote),
             contentType: 'application/json',
             headers: {
-                "Authorization": "Basic " + ajax_object.basic_auth
+                "Authorization": "Basic " + propoza_ajax_object.basic_auth
             },
             success: function (data) {
                 if (data.response.validationErrors && data.response.validationErrors.Requester) {
