@@ -1,10 +1,10 @@
 === Propoza ===
 Contributors: propoza.com
 Website: http://propoza.com/
-Tags: propoza, rfq, requestforquote, quote, quoations, woocommerce
+Tags: propoza, rfq, requestforquote, quote, quotations, woocommerce
 Requires at least: 4.0.1
 Tested up to: 4.0.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 Module dependency: WooCommerce
 License: Commercial Use
 
@@ -26,18 +26,18 @@ The Benefits:
 * Close the Deal: We've built Propoza with you in mind. We know you want to close the deal and win customers. 
 * All in one place: Never loose track again and keep a close eye on your customer requests..
 * Save Time: Manually creating quotes takes time. Expect to save hours of time with Propoza.
-This is a free early access programme. No creditcard or payment is required. The features you get in this programme will remain free.
+This is a free early access program. No creditcard or payment is required. The features you get in this program are free.
 
 == Installation ==
 
 1. Upload the contents of `propoza-woocommerce.zip` to the `/wp-content/plugins/` directory.
-1. Activate the plugin through the 'Plugins' menu in WordPress.
-1. Configure the plugin by pressing Settings.
-1. If you don't have an account, please press Setup your free account and request a subdomain and API key.
-1. Insert your subdomain and API key.
-1. Press Save changes
-1. Press Test connection to test the connection from wordpress to your propoza account.
-1. Create a test quote in the front-end.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+3. Configure the plugin by navigating to the settings page on the plugin page or the Propoza tab under WooCommerce settings.
+4. If you don't have an account, please press Setup your free account and request a subdomain and API key.
+5. Insert your subdomain and API key. These can be found in the registration e-mail or your Propoza dashboard.
+6. Press Save changes
+7. Press Test connection to test the connection from wordpress to your propoza account.
+8. Create a test quote in the front-end.
 
 == Frequently Asked Questions ==
 
@@ -59,3 +59,8 @@ You can submit a subdomain when creating an account at propoza.com.
 * Minor textual and layout changes
 = 1.0.3 =
 * Changed code to comply with WordPress coding conventions
+= 1.0.4 =
+* Improved: Security
+* Improved: Propoza Dashboard
+* Fixed: IE 8 & 9 Bugs
+* Fixed: Many small issues

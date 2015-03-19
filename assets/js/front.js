@@ -6,61 +6,44 @@ jQuery(function () {
 });
 
 function request_quote_form() {
-    jQuery.ajax(
-        {
-            url: propoza_ajax_object.form_quote_request_url,
-            type: "POST",
-            data: JSON.stringify(propoza_ajax_object.logged_in_user),
-            contentType: 'application/json',
-            headers: {
-                "Authorization": "Basic " + propoza_ajax_object.basic_auth
-            },
-            success: function (response) {
-                jQuery("#dialog").html(response);
-                jQuery('#cancel_request').click(function () {
-                    jQuery("#dialog").dialog("close");
-                });
-                jQuery('#submit_request').click(function () {
-                    execute_request_quote();
-                });
-                jQuery("#dialog").dialog("open");
-            },
-            error: function () {
-                jQuery("#dialog").dialog("open");
-                jQuery("#dialog").html(jQuery('#error-message'));
-            }
-        }
-    );
+    jQuery.post(propoza_request.ajax_url, {
+        'action': 'get_form_quote_request'
+    }, function (data) {
+        jQuery("#dialog").html(data);
+        jQuery('#cancel_request').click(function () {
+            jQuery("#dialog").dialog("close");
+        });
+        jQuery('#submit_request').click(function () {
+            execute_request_quote();
+        });
+        jQuery("#dialog").dialog("open");
+    }).fail(function () {
+        jQuery("#dialog").dialog("open");
+        jQuery("#dialog").html(jQuery('#error-message'));
+    });
 }
 function execute_request_quote() {
     jQuery('#quote_request_form input').parent('p').removeClass('woocommerce-invalid');
     var form = jQuery("#quote_request_form");
-    propoza_ajax_object.prepared_quote.Quote.Requester = form.serializeObject();
-    delete propoza_ajax_object.prepared_quote.Quote.Requester._method;
 
-    jQuery.ajax(
-        {
-            url: form.attr('action'),
-            type: "POST",
-            data: JSON.stringify(propoza_ajax_object.prepared_quote),
-            contentType: 'application/json',
-            headers: {
-                "Authorization": "Basic " + propoza_ajax_object.basic_auth
-            },
-            success: function (data) {
-                if (data.response.validationErrors && data.response.validationErrors.Requester) {
-                    for (var key in data.response.validationErrors.Requester) {
-                        jQuery('#quote_request_form input#' + key).parent('p').addClass('woocommerce-invalid');
-                    }
-                } else {
-                    jQuery("#dialog").html(jQuery('#success-message'));
-                }
-            },
-            error: function (data) {
-                jQuery("#dialog").html(jQuery('#error-message'));
+    jQuery.post(propoza_request.ajax_url, {
+        'action': 'execute_request_quote',
+        'form-action': form.attr('action'),
+        'form-data': form.serializeObject()
+    }, function (data) {
+        if (data.response && data.response.Quote && data.response.Quote.id) {
+            jQuery("#dialog").html(jQuery('#success-message'));
+        } else if (data.response && data.response.validationErrors && data.response.validationErrors.Requester) {
+            for (var key in data.response.validationErrors.Requester) {
+                jQuery('#quote_request_form input#' + key).parent('p').addClass('woocommerce-invalid');
             }
-        });
+        } else {
+            jQuery("#dialog").html(jQuery('#error-message'));
+        }
 
+    }, 'json').fail(function () {
+        jQuery("#dialog").html(jQuery('#error-message'));
+    });
 }
 
 jQuery.fn.serializeObject = function () {
