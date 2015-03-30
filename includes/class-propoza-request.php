@@ -17,8 +17,8 @@
 				add_action('wp_enqueue_scripts', array($this, 'register_scripts_and_styles'));
 
 				add_action('woocommerce_proceed_to_checkout', array($this, 'add_after_cart'));
-				add_action('wp_ajax_get_form_quote_request', array($this, 'get_form_quote_request'));
-				add_action('wp_ajax_execute_request_quote', array($this, 'execute_request_quote'));
+                add_action('wp_ajax_nopriv_get_form_quote_request', array($this, 'get_form_quote_request'));
+                add_action('wp_ajax_nopriv_execute_request_quote', array($this, 'execute_request_quote'));
 			}
 
 			public function add_after_cart()
