@@ -1,15 +1,20 @@
-function request_quote() {
-    request_quote_form();
-}
 jQuery(function () {
     jQuery("#dialog").dialog({autoOpen: false, modal: true, resizable: false});
 });
+
+function request_quote() {
+    request_quote_form();
+}
 
 function request_quote_form() {
     jQuery.post(propoza_request.ajax_url, {
         'action': 'get_form_quote_request'
     }, function (data) {
-        jQuery("#dialog").html(data);
+        if (data != '') {
+            jQuery("#dialog").html(data);
+        } else {
+            jQuery("#dialog").html(jQuery('#error-message'));
+        }
         jQuery('#cancel_request').click(function () {
             jQuery("#dialog").dialog("close");
         });
@@ -33,6 +38,9 @@ function execute_request_quote() {
     }, function (data) {
         if (data.response && data.response.Quote && data.response.Quote.id) {
             jQuery("#dialog").html(jQuery('#success-message'));
+            jQuery("#dialog").bind('dialogclose', function (event) {
+                location.reload();
+            });
         } else if (data.response && data.response.validationErrors && data.response.validationErrors.Requester) {
             for (var key in data.response.validationErrors.Requester) {
                 jQuery('#quote_request_form input#' + key).parent('p').addClass('woocommerce-invalid');
