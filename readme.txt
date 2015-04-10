@@ -9,40 +9,25 @@ Module dependency: WooCommerce
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-An awesome plugin that does awesome things
-
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+Propoza's Quotes Extension allows users to send quotation request from the Woo-Commerce front end with a user friendly Request-for-Quote (RFQ) form.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+On submitting the RFQ form customers receive an email confirmation for the quote requested. The storeowner is enabled to add a custom price to each requested item and send a proposal back to the customer. The customer will be able to accept or decline the offer via a client dashboard or straight from the email.
 
-A few notes about the sections above:
+Features Include:
+* Add an online quotation form to your Woo-Commerce store that is directly linked to your product catalog.
+* Receive instant updates when customers submit requests.
+* Create price proposals in mere seconds.
+* Manage all your proposals in one place.
 
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
-
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
-
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+The Benefits:
+* Close the Deal: We've built Propoza with you in mind. We know you want to close the deal and win customers.
+* All in one place: Never loose track again and keep a close eye on your customer requests..
+* Save Time: Manually creating quotes takes time. Expect to save hours of time with Propoza.
+This is a free early access program. No creditcard or payment is required. The features you get in this program are free.
 
 == Installation ==
-
-This section describes how to install the plugin and get it working.
-
-e.g.
 
 = Using The WordPress Dashboard =
 
