@@ -3,7 +3,7 @@ Contributors: info.propoza
 Donate link: http://example.com/
 Tags: comments, spam
 Requires at least: 4.0.1
-Tested up to: 4.2.1
+Tested up to: 4.1.1
 Stable tag: 1.0.6
 Module dependency: WooCommerce
 License: GPLv2 or later
@@ -11,18 +11,18 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Propoza's Quotes Extension allows users to send quotation request from the Woo-Commerce front end with a user friendly Request-for-Quote (RFQ) form.
+Propoza's Quotes Extension allows customers to send quotation request from the Woo-Commerce front-end with a user friendly Request-for-Quote (RFQ) form.
 
-On submitting the RFQ form customers receive an email confirmation for the quote requested. The storeowner is enabled to add a custom price to each requested item and send a proposal back to the customer. The customer will be able to accept or decline the offer via a client dashboard or straight from the email.
+On submitting the RFQ form customers and the store administrator receives an email confirmation with the quote request. The storeowner is then able to add a custom price to each requested item and send a proposal back to the customer. The customer will be able to accept or decline the offer via the client dashboard or straight from the email.
 
-After the customer decides to accept of decline the price offer, the storeowner gets a notification about the given choice via the admin dashboard.
-When the customer accepts the new proposal offer, the customer is able to checkout with the discounted price.
+After the customer accepts the proposal, he or she will be redirected to the e-commerce checkout to complete the order with a discounted price.
 
 = Features Include: =
 * Add an online quotation form to your Woo-Commerce store that is directly linked to your product catalog.
 * Receive instant updates when customers submit requests.
 * Create price proposals in mere seconds.
 * Manage all your proposals in one place.
+* Let you customers check with the discounted proposal prices.
 
 = The Benefits: =
 * Close the Deal: We've built Propoza with you in mind. We know you want to close the deal and win customers.
@@ -66,33 +66,20 @@ This is a free early access program. No creditcard or payment is required. The f
 
 = How do I get an API key? =
 
-Your will receive an API key by mail after you have submitted an account on propoza.com.
+Your will receive your API key by e-mail after you have submitted an account on propoza.com.
 
-= How do I get an Webaddress =
+= How do I get an Web-address =
 
 You can submit a subdomain when creating an account at propoza.com.
 
 == Screenshots ==
 
-<a href=“https://www.youtube.com/watch?v=Dfwx_tshYi8”>video-banner.png</a>
-Propoza explained in less then two minutes.
-
-quote-overview.png
-Here you can find all of the quote requests by the customer ordered by status.
-
-quote-view.png
-On this quote you can easily make the customer a offer he can’t resist.
-
-personalize.png
-Enter a personal note before sending your price Proposal.
-
-accept-quote.png
-Once the Proposal price has been updated, the customer can either accept of decline your offer.
-
-modify-quote.png
-Personalize your Proposals by uploading your company logo or to add additional information.
-
-2. This is the second screen shot
+1. Propoza explained in less then two minutes.
+2. Here you can find all of the quote requests by the customer ordered by status.
+3. On this quote you can make the customer the offer he can’t refuse.
+4. Add a personal message to your price Proposal.
+5. Once the Proposal price has been updated, the customer can either accept of decline your offer.
+6. Personalize your Proposals by uploading your company logo or to add additional information.
 
 == Changelog ==
 
