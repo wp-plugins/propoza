@@ -3,7 +3,7 @@ Contributors: info.propoza
 Donate link: http://example.com/
 Tags: comments, spam
 Requires at least: 4.0.1
-Tested up to: 4.1.1
+Tested up to: 4.2.1
 Stable tag: 1.0.6
 Module dependency: WooCommerce
 License: GPLv2 or later
@@ -15,15 +15,18 @@ Propoza's Quotes Extension allows users to send quotation request from the Woo-C
 
 On submitting the RFQ form customers receive an email confirmation for the quote requested. The storeowner is enabled to add a custom price to each requested item and send a proposal back to the customer. The customer will be able to accept or decline the offer via a client dashboard or straight from the email.
 
-Features Include:
+After the customer decides to accept of decline the price offer, the storeowner gets a notification about the given choice via the admin dashboard.
+When the customer accepts the new proposal offer, the customer is able to checkout with the discounted price.
+
+= Features Include: =
 * Add an online quotation form to your Woo-Commerce store that is directly linked to your product catalog.
 * Receive instant updates when customers submit requests.
 * Create price proposals in mere seconds.
 * Manage all your proposals in one place.
 
-The Benefits:
+= The Benefits: =
 * Close the Deal: We've built Propoza with you in mind. We know you want to close the deal and win customers.
-* All in one place: Never loose track again and keep a close eye on your customer requests..
+* All in one place: Never loose track again and keep a close eye on your customer requests.
 * Save Time: Manually creating quotes takes time. Expect to save hours of time with Propoza.
 This is a free early access program. No creditcard or payment is required. The features you get in this program are free.
 
@@ -56,7 +59,7 @@ This is a free early access program. No creditcard or payment is required. The f
 2. If you don't have an account, please press Setup your free account and request a subdomain and API key.
 3. Insert your subdomain and API key. These can be found in the registration e-mail or your Propoza dashboard.
 4. Press Save changes
-5. Press Test connection to test the connection from wordpress to your propoza account.
+5. Press Test connection to test the connection from Wordpress to your Propoza account.
 6. Create a test quote in the front-end.
 
 == Frequently Asked Questions ==
@@ -71,10 +74,24 @@ You can submit a subdomain when creating an account at propoza.com.
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
+<a href=“https://www.youtube.com/watch?v=Dfwx_tshYi8”>video-banner.png</a>
+Propoza explained in less then two minutes.
+
+quote-overview.png
+Here you can find all of the quote requests by the customer ordered by status.
+
+quote-view.png
+On this quote you can easily make the customer a offer he can’t resist.
+
+personalize.png
+Enter a personal note before sending your price Proposal.
+
+accept-quote.png
+Once the Proposal price has been updated, the customer can either accept of decline your offer.
+
+modify-quote.png
+Personalize your Proposals by uploading your company logo or to add additional information.
+
 2. This is the second screen shot
 
 == Changelog ==
