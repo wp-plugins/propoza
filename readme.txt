@@ -17,6 +17,8 @@ On submitting the RFQ form customers and the store administrator receives an ema
 
 After the customer accepts the proposal, he or she will be redirected to the e-commerce checkout to complete the order with a discounted price.
 
+[Check out the Propoza video](https://www.youtube.com/watch?v=Dfwx_tshYi8 "Check out the Propoza video")
+
 = Features Include: =
 * Add an online quotation form to your Woo-Commerce store that is directly linked to your product catalog.
 * Receive instant updates when customers submit requests.
@@ -74,12 +76,12 @@ You can submit a subdomain when creating an account at propoza.com.
 
 == Screenshots ==
 
-1. Propoza explained in less then two minutes.
-2. Here you can find all of the quote requests by the customer ordered by status.
-3. On this quote you can make the customer the offer he can’t refuse.
-4. Add a personal message to your price Proposal.
-5. Once the Proposal price has been updated, the customer can either accept of decline your offer.
-6. Personalize your Proposals by uploading your company logo or to add additional information.
+1. Here you can find all of the quote requests by the customer ordered by status.
+2. On this quote you can make the customer the offer he can’t refuse.
+3. Add a personal message to your price Proposal.
+4. Once the Proposal price has been updated, the customer can either accept of decline your offer.
+5. Personalize your Proposals by uploading your company logo or to add additional information.
+6. Checkout with your discounted proposal price.
 
 == Changelog ==
 
