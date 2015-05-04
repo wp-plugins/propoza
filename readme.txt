@@ -24,7 +24,7 @@ After the customer accepts the proposal, he or she will be redirected to the e-c
 * Receive instant updates when customers submit requests.
 * Create price proposals in mere seconds.
 * Manage all your proposals in one place.
-* Let you customers check with the discounted proposal prices.
+* Let your customers checkout with the discounted proposal prices.
 
 = The Benefits: =
 * Close the Deal: We've built Propoza with you in mind. We know you want to close the deal and win customers.
@@ -76,12 +76,13 @@ You can submit a subdomain when creating an account at propoza.com.
 
 == Screenshots ==
 
-1. Here you can find all of the quote requests by the customer ordered by status.
-2. On this quote you can make the customer the offer he can’t refuse.
-3. Add a personal message to your price Proposal.
-4. Once the Proposal price has been updated, the customer can either accept of decline your offer.
-5. Personalize your Proposals by uploading your company logo or to add additional information.
-6. Checkout with your discounted proposal price.
+1. The customer requests his of her quote on your Woocommerce store
+2. Here you can find all of the quote requests by the customer ordered by status.
+3. On this quote you can make the customer the offer he can’t refuse.
+4. Add a personal message to your price Proposal.
+5. Once the Proposal price has been updated, the customer can either accept of decline your offer.
+6. Personalize your Proposals by uploading your company logo or to add additional information.
+7. Checkout with your discounted proposal price.
 
 == Changelog ==
 
