@@ -1,34 +1,29 @@
-=== Propoza ===
+=== WooCommerce Propoza ===
 Contributors: info.propoza
 Donate link: http://example.com/
 Tags: comments, spam
 Requires at least: 4.0.1
-Tested up to: 4.1.1
-Stable tag: 1.0.6
+Tested up to: 4.2
+Stable tag: 1.0.7
 Module dependency: WooCommerce
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Propoza's Quotes Extension allows customers to send quotation request from the Woo-Commerce front-end with a user friendly Request-for-Quote (RFQ) form.
+Propoza's Quotes Extension allows users to send quotation request from the Woo-Commerce front end with a user friendly Request-for-Quote (RFQ) form.
 
-On submitting the RFQ form customers and the store administrator receives an email confirmation with the quote request. The storeowner is then able to add a custom price to each requested item and send a proposal back to the customer. The customer will be able to accept or decline the offer via the client dashboard or straight from the email.
+On submitting the RFQ form customers receive an email confirmation for the quote requested. The storeowner is enabled to add a custom price to each requested item and send a proposal back to the customer. The customer will be able to accept or decline the offer via a client dashboard or straight from the email.
 
-After the customer accepts the proposal, he or she will be redirected to the e-commerce checkout to complete the order with a discounted price.
-
-[Check out the Propoza video](https://www.youtube.com/watch?v=Dfwx_tshYi8 "Check out the Propoza video")
-
-= Features Include: =
+Features Include:
 * Add an online quotation form to your Woo-Commerce store that is directly linked to your product catalog.
 * Receive instant updates when customers submit requests.
 * Create price proposals in mere seconds.
 * Manage all your proposals in one place.
-* Let your customers checkout with the discounted proposal prices.
 
-= The Benefits: =
+The Benefits:
 * Close the Deal: We've built Propoza with you in mind. We know you want to close the deal and win customers.
-* All in one place: Never loose track again and keep a close eye on your customer requests.
+* All in one place: Never loose track again and keep a close eye on your customer requests..
 * Save Time: Manually creating quotes takes time. Expect to save hours of time with Propoza.
 This is a free early access program. No creditcard or payment is required. The features you get in this program are free.
 
@@ -61,28 +56,26 @@ This is a free early access program. No creditcard or payment is required. The f
 2. If you don't have an account, please press Setup your free account and request a subdomain and API key.
 3. Insert your subdomain and API key. These can be found in the registration e-mail or your Propoza dashboard.
 4. Press Save changes
-5. Press Test connection to test the connection from Wordpress to your Propoza account.
+5. Press Test connection to test the connection from wordpress to your propoza account.
 6. Create a test quote in the front-end.
 
 == Frequently Asked Questions ==
 
 = How do I get an API key? =
 
-Your will receive your API key by e-mail after you have submitted an account on propoza.com.
+Your will receive an API key by mail after you have submitted an account on propoza.com.
 
-= How do I get an Web-address =
+= How do I get an Webaddress =
 
 You can submit a subdomain when creating an account at propoza.com.
 
 == Screenshots ==
 
-1. The customer requests his of her quote on your Woocommerce store
-2. Here you can find all of the quote requests by the customer ordered by status.
-3. On this quote you can make the customer the offer he can’t refuse.
-4. Add a personal message to your price Proposal.
-5. Once the Proposal price has been updated, the customer can either accept of decline your offer.
-6. Personalize your Proposals by uploading your company logo or to add additional information.
-7. Checkout with your discounted proposal price.
+1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
+the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
+directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
+(or jpg, jpeg, gif).
+2. This is the second screen shot
 
 == Changelog ==
 
@@ -109,3 +102,6 @@ You can submit a subdomain when creating an account at propoza.com.
 
 = 1.0.6 =
 * Added: Checkout functionality on accepted quote
+
+= 1.0.7 =
+* Added: Quote request form builder

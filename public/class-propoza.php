@@ -214,7 +214,7 @@ class Propoza {
 	}
 
 	public static function get_form_quote_request_url() {
-		return sprintf( '%s/api/WooCommerceQuotes/requestQuoteForm', Propoza::get_dashboard_propoza_url() );
+		return sprintf( '%s/api/WooCommerceQuotes/requestQuoteFormBuilder', Propoza::get_dashboard_propoza_url() );
 	}
 
 	public static function is_valid_api_key( $string ) {

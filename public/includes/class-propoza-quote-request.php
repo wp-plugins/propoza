@@ -51,17 +51,41 @@ class Propoza_Quote_Request {
 
 	public function init() {
 		// Load public-facing style sheet and JavaScript.
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array(
+			$this,
+			'enqueue_styles'
+		) );
+		add_action( 'wp_enqueue_scripts', array(
+			$this,
+			'enqueue_scripts'
+		) );
 
-		add_action( 'wp_ajax_get_form_quote_request', array( $this, 'get_form_quote_request' ) );
-		add_action( 'wp_ajax_execute_request_quote', array( $this, 'execute_request_quote' ) );
-		add_action( 'wp_ajax_nopriv_get_form_quote_request', array( $this, 'get_form_quote_request' ) );
-		add_action( 'wp_ajax_nopriv_execute_request_quote', array( $this, 'execute_request_quote' ) );
+		add_action( 'wp_ajax_get_form_quote_request', array(
+			$this,
+			'get_form_quote_request'
+		) );
+		add_action( 'wp_ajax_execute_request_quote', array(
+			$this,
+			'execute_request_quote'
+		) );
+		add_action( 'wp_ajax_nopriv_get_form_quote_request', array(
+			$this,
+			'get_form_quote_request'
+		) );
+		add_action( 'wp_ajax_nopriv_execute_request_quote', array(
+			$this,
+			'execute_request_quote'
+		) );
 
-		add_action( 'woocommerce_proceed_to_checkout', array( $this, 'add_after_cart' ), 1000 );
+		add_action( 'woocommerce_proceed_to_checkout', array(
+			$this,
+			'add_after_cart'
+		), 1000 );
 
-		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
+		add_action( 'plugins_loaded', array(
+			$this,
+			'plugins_loaded'
+		) );
 	}
 
 	public function plugins_loaded() {
@@ -110,16 +134,14 @@ class Propoza_Quote_Request {
 
 	public function get_form_quote_request() {
 		$propoza_quote = new Propoza_Quote();
-		$response      = wp_remote_post( Propoza::get_form_quote_request_url(),
-			array(
-				'method'  => 'POST',
-				'body'    => json_encode( $propoza_quote->get_prepared_logged_in_user() ),
-				'headers' => array(
-					'Content-Type'  => 'text/html',
-					'Authorization' => 'Basic ' . WC_Propoza_Integration::option( 'api_key', null )
-				)
+		$response = wp_remote_post( Propoza::get_form_quote_request_url(), array(
+			'method'  => 'POST',
+			'body'    => json_encode( $propoza_quote->get_prepared_logged_in_user() ),
+			'headers' => array(
+				'Content-Type'  => 'text/html',
+				'Authorization' => 'Basic ' . WC_Propoza_Integration::option( 'api_key', null )
 			)
-		);
+		) );
 
 		if ( ! is_wp_error( $response ) ) {
 			echo $response['body'];
@@ -131,23 +153,58 @@ class Propoza_Quote_Request {
 		$propoza_quote = new Propoza_Quote();
 		$propoza_quote->load_products_from_cart();
 		$propoza_quote->save();
-		$quote_request               = $propoza_quote->prepare_quote_request();
-		$quote['Quote']['Requester'] = array_merge( $quote_request['Quote']['Requester'], $_POST['form-data'] );
-		$response                    = wp_remote_post( $_POST['form-action'],
-			array(
-				'method'  => 'POST',
-				'body'    => json_encode( $quote_request ),
-				'headers' => array(
-					'Content-Type'  => 'application/json',
-					'Authorization' => 'Basic ' . WC_Propoza_Integration::option( 'api_key', null )
-				)
+		$quote_request = $propoza_quote->prepare_quote_request();
+
+		$quote_request['Quote'] = array_merge( $quote_request['Quote'], $_POST['data'] );
+		$response               = wp_remote_post( $_POST['form-action'], array(
+			'method'  => 'POST',
+			'body'    => json_encode( $quote_request ),
+			'headers' => array(
+				'Content-Type'  => 'application/json',
+				'Authorization' => 'Basic ' . WC_Propoza_Integration::option( 'api_key', null )
 			)
-		);
+		) );
 		if ( ! is_wp_error( $response ) ) {
-			$woocommerce = WC();
-			$woocommerce->cart->empty_cart();
-			echo $response['body'];
+			$body = json_decode( $response['body'], true );
+			if ( ! isset( $body['response']['validationErrors'] ) ) {
+				$woocommerce = WC();
+				$woocommerce->cart->empty_cart();
+			} else {
+				$body['response']['validationErrors'] = $this->array_flat( $body['response']['validationErrors'] );
+			}
+			echo json_encode( $body, true );
 		}
 		die;
+	}
+
+	private function array_flat( $array, $prefix = '' ) {
+		$result = array();
+
+		foreach ( $array as $key => $value ) {
+			if ( ! is_numeric( $key ) ) {
+				$new_key = $prefix . ucfirst( $key );
+			} else {
+				$new_key = $prefix;
+			}
+
+			if ( is_array( $value ) ) {
+				$result = array_merge( $result, $this->array_flat( $value, $new_key ) );
+			} else {
+				$result[ $this->underscore_to_camel_case( $new_key, true ) ] = $value;
+			}
+		}
+
+		return $result;
+	}
+
+	private function underscore_to_camel_case( $string, $capitalizeFirstCharacter = false ) {
+
+		$str = str_replace( ' ', '', ucwords( str_replace( '_', ' ', $string ) ) );
+
+		if ( ! $capitalizeFirstCharacter ) {
+			$str[0] = strtolower( $str[0] );
+		}
+
+		return $str;
 	}
 }

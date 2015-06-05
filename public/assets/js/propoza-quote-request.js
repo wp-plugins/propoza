@@ -28,44 +28,36 @@ function request_quote_form() {
     });
 }
 function execute_request_quote() {
+    toggleLoading();
     jQuery('#quote_request_form input').parent('p').removeClass('woocommerce-invalid');
     var form = jQuery("#quote_request_form");
-
-    jQuery.post(propoza_request.ajax_url, {
-        'action': 'execute_request_quote',
-        'form-action': form.attr('action'),
-        'form-data': form.serializeObject()
-    }, function (data) {
+    var postData = form.serializeArray();
+    postData.push({name: 'action', value: 'execute_request_quote'});
+    postData.push({name: 'form-action', value: form.attr('action')});
+    jQuery.post(propoza_request.ajax_url, postData, function (data) {
+        toggleLoading();
         if (data.response && data.response.Quote && data.response.Quote.id) {
             jQuery("#dialog").html(jQuery('#success-message'));
             jQuery("#dialog").bind('dialogclose', function (event) {
                 location.reload();
             });
-        } else if (data.response && data.response.validationErrors && data.response.validationErrors.Requester) {
-            for (var key in data.response.validationErrors.Requester) {
-                jQuery('#quote_request_form input#' + key).parent('p').addClass('woocommerce-invalid');
+        } else if (data.response && data.response.validationErrors) {
+            for (var key in data.response.validationErrors) {
+                var parent = jQuery('#' + key).parent('p');
+                parent.find('.validation-error-message').html(data.response.validationErrors[key]);
+                parent.addClass('woocommerce-invalid');
             }
         } else {
             jQuery("#dialog").html(jQuery('#error-message'));
         }
 
     }, 'json').fail(function () {
+        toggleLoading();
         jQuery("#dialog").html(jQuery('#error-message'));
     });
 }
 
-jQuery.fn.serializeObject = function () {
-    var o = {};
-    var a = this.serializeArray();
-    jQuery.each(a, function () {
-        if (o[this.name]) {
-            if (!o[this.name].push) {
-                o[this.name] = [o[this.name]];
-            }
-            o[this.name].push(this.value || '');
-        } else {
-            o[this.name] = this.value || '';
-        }
-    });
-    return o;
-};
+function toggleLoading() {
+    jQuery('#quote_request_form').toggle();
+    jQuery('#loader').toggle();
+}

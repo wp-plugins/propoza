@@ -60,7 +60,7 @@ class Propoza_Quote {
 	}
 
 	public function prepare_requester() {
-		$form_data              = $_POST['form-data'];
+		$form_data = $_POST['data'];
 		$requester              = array();
 		$requester['firstname'] = isset( $form_data['firstname'] ) ? $form_data['firstname'] : '';
 		$requester['lastname']  = isset( $form_data['lastname'] ) ? $form_data['lastname'] : '';
@@ -148,9 +148,7 @@ class Propoza_Quote {
 		$counter = 0;
 		if ( ! empty( $product['variation'] ) ) {
 			foreach ( $product['variation'] as $key => $attribute_combination ) {
-				$product_attribtues[ $counter ]['name']  = substr( $key,
-					strpos( $key, 'attribute_' ) +
-					strlen( 'attribute_' ) );
+				$product_attribtues[ $counter ]['name'] = substr( $key, strpos( $key, 'attribute_' ) + strlen( 'attribute_' ) );
 				$product_attribtues[ $counter ]['value'] = $attribute_combination;
 				$counter ++;
 			}

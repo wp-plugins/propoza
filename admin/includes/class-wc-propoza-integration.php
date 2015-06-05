@@ -13,16 +13,13 @@ if ( ! class_exists( 'WC_Propoza_Integration' ) ) :
 		 * Ajax Test connection
 		 */
 		public function test_connection() {
-			$response = wp_remote_post(
-				Propoza::get_connection_test_url( $_POST['web_address'] ),
-				array(
+			$response = wp_remote_post( Propoza::get_connection_test_url( $_POST['web_address'] ), array(
 					'method'  => 'POST',
 					'headers' => array(
 						'Content-Type'  => 'application/json',
 						'Authorization' => 'Basic ' . base64_encode( $_POST['api_key'] )
 					)
-				)
-			);
+			) );
 			if ( ! $response instanceof WP_Error ) {
 				echo $response['body'];
 			} else {

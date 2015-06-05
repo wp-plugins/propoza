@@ -69,8 +69,7 @@ class Propoza_Checkout {
 			$propoza_coupon = new Propoza_Coupon();
 			$propoza_coupon->load_by_id( $coupon_code );
 			if ( $propoza_coupon->is_propoza_proposal ) {
-				$response = wp_remote_post( Propoza::get_quote_ordered_url(),
-					array(
+				$response = wp_remote_post( Propoza::get_quote_ordered_url(), array(
 						'method'  => 'POST',
 						'body'    => json_encode( array(
 							'Quote' => array(
@@ -83,8 +82,7 @@ class Propoza_Checkout {
 							'Content-Type'  => 'application/json',
 							'Authorization' => 'Basic ' . WC_Propoza_Integration::option( 'api_key', null )
 						)
-					)
-				);
+				) );
 				if ( ! is_wp_error( $response ) ) {
 					$propoza_quote = new Propoza_Quote( $propoza_coupon->propoza_quote_id );
 					$propoza_quote->delete_proposal_quote_clones( $propoza_coupon->propoza_quote_id );

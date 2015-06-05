@@ -11,10 +11,10 @@
  * @copyright 2015 Propoza
  *
  * @wordpress-plugin
- * Plugin Name:       Propoza
+ * Plugin Name:       WooCommerce Propoza
  * Plugin URI:        https://propoza.com
  * Description:       Propoza adds quotation functionality to your webshop. This means more leads & more orders!
- * Version:           1.0.6
+ * Version:           1.0.7
  * Author:            Propoza
  * Text Domain:       propoza
  * License:           GPL-2.0+
@@ -45,8 +45,14 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 	 * Register hooks that are fired when the plugin is activated or deactivated.
 	 * When the plugin is deleted, the uninstall.php file is loaded.
 	 */
-	register_activation_hook( __FILE__, array( 'Propoza', 'activate' ) );
-	register_deactivation_hook( __FILE__, array( 'Propoza', 'deactivate' ) );
+	register_activation_hook( __FILE__, array(
+		'Propoza',
+		'activate'
+	) );
+	register_deactivation_hook( __FILE__, array(
+		'Propoza',
+		'deactivate'
+	) );
 
 	/*----------------------------------------------------------------------------*
 	 * Dashboard and Administrative Functionality
@@ -66,4 +72,10 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 	} else {
 		Propoza_Frontend::get_instance()->init();
 	}
+} else {
+	function woocommerce_not_active_notice() {
+		echo '<div class="error"><p><b>WooCommerce</b> is not active/installed. Please activate/install <b>WooCommerce</b> to make use of <b>Propoza</b>!</p></div>';
+	}
+
+	add_action( 'admin_notices', 'woocommerce_not_active_notice' );
 }
